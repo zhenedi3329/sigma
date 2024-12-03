@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlow | Modern Learning Platform</title>
+    <link hrzef="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="sigma.css">
+
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                EduFlow
+            </a>
+            <nav class="nav-menu">
+                <a href="#dashboard" class="nav-item active">Dashboard</a>
+                <a href="#courses" class="nav-item">Courses</a>
+                <a href="#schedule" class="nav-item">Schedule</a>
+                <a href="#assignments" class="nav-item">Assignments</a>
+                <a href="#messages" class="nav-item">Messages</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button class="btn btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn btn-icon" onclick="showNotifications()" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge badge-primary">3</span>
+                </button>
+                <button class="btn btn-icon" onclick="showProfile()" title="Profile">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe" 
+                        alt="Profile" 
+                         style="width: 32px; height: 32px; border-radius: 50%;">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Quick Actions -->
+            <div class="flex items-center justify-between mb-4">
+                <h1>Welcome back, John!</h1>
+                <div class="flex gap-2">
+                    <button class="btn btn-primary" onclick="startStudying()">
+                        <i class="fas fa-play"></i>
+                        Start Studying
+                    </button>
+                    <button class="btn btn-outline" onclick="showCalendar()">
+                        <i class="fas fa-calendar"></i>
+                        Calendar
+                    </button>
+                    <button class="btn btn-outline" onclick="showTasks()">
+                        <i class="fas fa-tasks"></i>
+                        Tasks
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2>Your Progress</h2>
+                    <button class="btn btn-outline" onclick="showDetailedProgress()">
+                        View Details
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="progress-item">
+                            <h3>Overall Progress</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <p class="text-sm text-secondary">75% Complete</p>
+                        </div>
+                        <div class="progress-item">
+                            <h3>Active Courses</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <p class="text-sm text-secondary">3 of 5 Completed</p>
+                        </div>
+                        <div class="progress-item">
+                            <h3>Assignments</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            <p class="text-sm text-secondary">9 of 10 Submitted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Active Courses -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Active Courses</h2>
+                        <button class="btn btn-outline" onclick="showAllCourses()">
+                            View All
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="list" id="active-courses-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Deadlines -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Upcoming Deadlines</h2>
+                        <button class="btn btn-outline" onclick="showAllDeadlines()">
+                            View All
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="list" id="deadlines-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recent Activities</h2>
+                        <button class="btn btn-outline" onclick="showAllActivities()">
+                            View All
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="list" id="activities-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Today's Schedule</h2>
+                        <button class="btn btn-outline" onclick="showFullSchedule()">
+                            Full Schedule
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="list" id="schedule-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="btn btn-icon" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <div class="popup top-right" id="notification-popup">
+        <div class="popup-header">
+            <h3>Notifications</h3>
+            <button class="btn btn-icon" onclick="closePopup('notification-popup')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="popup-body" id="notifications-list">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div class="popup bottom-right" id="quick-actions-popup">
+        <div class="popup-header">
+            <h3>Quick Actions</h3>
+            <button class="btn btn-icon" onclick="closePopup('quick-actions-popup')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="popup-body">
+            <div class="list">
+                <button class="btn btn-outline w-full mb-2" onclick="startNewCourse()">
+                    <i class="fas fa-plus"></i> Start New Course
+                </button>
+                <button class="btn btn-outline w-full mb-2" onclick="createAssignment()">
+                    <i class="fas fa-tasks"></i> Create Assignment
+                </button>
+                <button class="btn btn-outline w-full" onclick="scheduleEvent()">
+                    <i class="fas fa-calendar-plus"></i> Schedule Event
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+     
+     
+<script src="sigma.js"> </script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+{
+    "user": {
+      "id": "u123",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@eduflow.com",
+      "avatar": "https://ui-avatars.com/api/?name=John+Doe",
+      "role": "student",
+      "enrollmentDate": "2024-01-15",
+      "settings": {
+        "theme": "light",
+        "notifications": {
+          "email": true,
+          "push": true,
+          "desktop": true,
+          "courseUpdates": true,
+          "assignmentReminders": true,
+          "discussionReplies": true,
+          "gradePosted": true
+        },
+        "language": "en",
+        "timezone": "UTC-5"
+      },
+      "stats": {
+        "coursesCompleted": 12,
+        "currentGPA": 3.8,
+        "totalStudyHours": 486,
+        "assignmentsSubmitted": 95,
+        "discussionPosts": 73
+      }
+    },
+    "courses": {
+      "active": [
+        {
+          "id": "c789",
+          "title": "Advanced Mathematics",
+          "code": "MATH301",
+          "instructor": {
+            "id": "i456",
+            "name": "Dr. Sarah Johnson",
+            "email": "s.johnson@eduflow.com",
+            "department": "Mathematics"
+          },
+          "schedule": {
+            "startDate": "2024-09-01",
+            "endDate": "2024-12-15",
+            "lectures": [
+              {
+                "day": "Monday",
+                "startTime": "09:00",
+                "endTime": "10:30",
+                "room": "Math-101"
+              },
+              {
+                "day": "Wednesday",
+                "startTime": "09:00",
+                "endTime": "10:30",
+                "room": "Math-101"
+              }
+            ]
+          },
+          "progress": {
+            "overall": 75,
+            "modules": [
+              {
+                "id": "m1",
+                "title": "Linear Algebra",
+                "completion": 100
+              },
+              {
+                "id": "m2",
+                "title": "Calculus",
+                "completion": 85
+              },
+              {
+                "id": "m3",
+                "title": "Differential Equations",
+                "completion": 45
+              }
+            ]
+          },
+          "grades": {
+            "current": 88.5,
+            "assignments": [
+              {
+                "id": "a1",
+                "title": "Linear Algebra Quiz",
+                "score": 92,
+                "maxScore": 100,
+                "weight": 0.15
+              },
+              {
+                "id": "a2",
+                "title": "Calculus Midterm",
+                "score": 85,
+                "maxScore": 100,
+                "weight": 0.30
+              }
+            ]
+          },
+          "materials": {
+            "textbooks": [
+              {
+                "id": "tb1",
+                "title": "Advanced Mathematics: A Comprehensive Guide",
+                "author": "Robert Smith",
+                "isbn": "978-0-123456-78-9",
+                "required": true
+              }
+            ],
+            "resources": [
+              {
+                "id": "r1",
+                "title": "Lecture Notes Week 1",
+                "type": "pdf",
+                "url": "/resources/math301/week1-notes.pdf",
+                "size": "2.4MB"
+              },
+              {
+                "id": "r2",
+                "title": "Practice Problems Set 1",
+                "type": "pdf",
+                "url": "/resources/math301/practice-set1.pdf",
+                "size": "1.8MB"
+              }
+            ]
+          }
+        },
+        {
+          "id": "c790",
+          "title": "Physics 101",
+          "code": "PHYS101",
+          "instructor": {
+            "id": "i457",
+            "name": "Prof. Michael Chen",
+            "email": "m.chen@eduflow.com",
+            "department": "Physics"
+          },
+          "schedule": {
+            "startDate": "2024-09-01",
+            "endDate": "2024-12-15",
+            "lectures": [
+              {
+                "day": "Tuesday",
+                "startTime": "11:00",
+                "endTime": "12:30",
+                "room": "Physics-201"
+              },
+              {
+                "day": "Thursday",
+                "startTime": "11:00",
+                "endTime": "12:30",
+                "room": "Physics-201"
+              }
+            ],
+            "labs": [
+              {
+                "day": "Friday",
+                "startTime": "14:00",
+                "endTime": "16:00",
+                "room": "Physics-Lab-101"
+              }
+            ]
+          },
+          "progress": {
+            "overall": 60,
+            "modules": [
+              {
+                "id": "m1",
+                "title": "Mechanics",
+                "completion": 85
+              },
+              {
+                "id": "m2",
+                "title": "Thermodynamics",
+                "completion": 65
+              },
+              {
+                "id": "m3",
+                "title": "Waves",
+                "completion": 30
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "assignments": {
+      "upcoming": [
+        {
+          "id": "a456",
+          "courseId": "c789",
+          "title": "Math Assignment 3",
+          "description": "Complete problems 1-10 from Chapter 5",
+          "dueDate": "2024-11-25T23:59:00Z",
+          "status": "pending",
+          "type": "homework",
+          "maxScore": 100,
+          "weight": 0.15,
+          "attachments": [
+            {
+              "id": "att1",
+              "name": "Chapter5_Problems.pdf",
+              "size": "1.2MB",
+              "type": "pdf"
+            }
+          ],
+          "submission": {
+            "allowedFormats": ["pdf", "doc", "docx"],
+            "maxFileSize": "10MB",
+            "attempts": {
+              "maximum": 3,
+              "used": 0
+            }
+          }
+        }
+      ],
+      "past": [
+        {
+          "id": "a455",
+          "courseId": "c789",
+          "title": "Math Assignment 2",
+          "description": "Complete problems 1-8 from Chapter 4",
+          "dueDate": "2024-11-18T23:59:00Z",
+          "status": "submitted",
+          "type": "homework",
+          "maxScore": 100,
+          "weight": 0.15,
+          "score": 92,
+          "feedback": {
+            "comments": "Excellent work on problem 6!",
+            "submittedDate": "2024-11-18T22:45:00Z",
+            "gradedDate": "2024-11-20T15:30:00Z"
+          }
+        }
+      ]
+    },
+    "schedule": {
+      "today": [
+        {
+          "id": "e789",
+          "type": "lecture",
+          "courseId": "c789",
+          "title": "Math Lecture",
+          "startTime": "09:00",
+          "endTime": "10:30",
+          "location": "Math-101",
+          "recurring": true,
+          "recurrencePattern": "weekly",
+          "materials": {
+            "preLecture": [
+              {
+                "id": "m1",
+                "title": "Chapter 5 Reading",
+                "type": "pdf"
+              }
+            ],
+            "postLecture": [
+              {
+                "id": "m2",
+                "title": "Lecture Slides",
+                "type": "pdf"
+              }
+            ]
+          }
+        },
+        {
+          "id": "e790",
+          "type": "lab",
+          "courseId": "c790",
+          "title": "Physics Lab",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "location": "Physics-Lab-101",
+          "materials": {
+            "required": [
+              {
+                "id": "m3",
+                "title": "Lab Manual",
+                "type": "pdf"
+              }
+            ],
+            "safety": {
+              "equipment": ["goggles", "lab coat"],
+              "instructions": "Lab safety guidelines document"
+            }
+          }
+        }
+      ]
+    },
+    "notifications": {
+      "unread": [
+        {
+          "id": "n123",
+          "type": "assignment",
+          "title": "New Assignment Posted",
+          "message": "Math Assignment 4 has been posted",
+          "courseId": "c789",
+          "timestamp": "2024-11-20T14:30:00Z",
+          "priority": "high",
+          "action": {
+            "type": "link",
+            "url": "/courses/c789/assignments/a457"
+          }
+        },
+        {
+          "id": "n124",
+          "type": "course",
+          "title": "Course Update",
+          "message": "New materials available in Physics 101",
+          "courseId": "c790",
+          "timestamp": "2024-11-20T13:15:00Z",
+          "priority": "medium",
+          "action": {
+            "type": "link",
+            "url": "/courses/c790/materials"
+          }
+        }
+      ]
+    },
+    "activities": {
+      "recent": [
+        {
+          "id": "act123",
+          "type": "quiz_completion",
+          "courseId": "c789",
+          "title": "Completed Math Quiz",
+          "timestamp": "2024-11-20T12:30:00Z",
+          "details": {
+            "score": 90,
+            "maxScore": 100,
+            "timeSpent": "45 minutes"
+          }
+        },
+        {
+          "id": "act124",
+          "type": "assignment_submission",
+          "courseId": "c790",
+          "title": "Submitted Physics Assignment",
+          "timestamp": "2024-11-20T10:45:00Z",
+          "details": {
+            "assignmentId": "a458",
+            "submissionTime": "2024-11-20T10:45:00Z"
+          }
+        }
+      ]
+    }
+  }
